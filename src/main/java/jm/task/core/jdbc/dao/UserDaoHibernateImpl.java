@@ -27,9 +27,6 @@ public class UserDaoHibernateImpl implements UserDao {
             session.createSQLQuery(CREATE).executeUpdate();
             transaction.commit();
         } catch (HibernateException e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
             e.printStackTrace();
         }
     }
@@ -42,9 +39,6 @@ public class UserDaoHibernateImpl implements UserDao {
             session.createSQLQuery(DROP).executeUpdate();
             transaction.commit();
         } catch (HibernateException e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
             e.printStackTrace();
         }
     }
